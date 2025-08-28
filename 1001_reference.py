@@ -75,7 +75,7 @@ def process_dataset(df, sheet_name, excel_df):
 
     # Define allowed columns
     allowed_prefix = "run"
-    allowed_exact = ["Bar code", "Swissknife barcode", "Product Name", "Food group", "Producer", "Brand","Mean", "Std", "RSD%"]
+    allowed_exact = ["Bar code", "Swissknife barcode", "Product Name", "Food group", "Producer", "Brand","Mean", "Std", "RSD%","EU Declaration salt (g/100g)","EU Declaration salt (g/100mL)","Salt Declaration"]
 
     # Filter columns: keep if exact match or starts with "run" followed by digits
     filtered_columns = [
@@ -129,5 +129,6 @@ if excel_file and csv_file_liq and csv_file_sol:
             )
     except Exception as e:
         st.error(f"❌ Error: {e}")
+
 
 
