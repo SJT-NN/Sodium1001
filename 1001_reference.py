@@ -83,7 +83,7 @@ def process_dataset(df, sheet_name, excel_df):
     return updated_df, len(df)
 
 # === STREAMLIT UI ===
-st.title("📊 Sodium Concentration Processor")
+st.title("📊 1001 food study barcode data correlator")
 
 excel_file = st.file_uploader("Upload Excel file", type=["xlsx"])
 csv_file_liq = st.file_uploader("Upload CSV file for Liquids", type=["csv"])
@@ -117,4 +117,5 @@ if excel_file and csv_file_liq and csv_file_sol:
             )
     except Exception as e:
         st.error(f"❌ Error: {e}")
+
 
