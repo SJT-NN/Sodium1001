@@ -124,11 +124,12 @@ if excel_file and csv_file_liq and csv_file_sol:
             st.download_button(
                 label="📥 Download Updated Excel",
                 data=xls_buffer.getvalue(),
-                file_name=f"Product list 1001 food study_{timestamp}.xlsx",
+                file_name=f"1001 food study data comparison_{timestamp}.xlsx",
                 mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
             )
     except Exception as e:
         st.error(f"❌ Error: {e}")
+
 
 
 
