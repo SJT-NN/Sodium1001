@@ -128,4 +128,5 @@ if excel_file and csv_file_liq and csv_file_sol:
                 mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
             )
     except Exception as e:
-        st.error(f"❌ Error: {e}"
+        st.error(f"❌ Error: {e}")
+
