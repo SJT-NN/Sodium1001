@@ -72,7 +72,18 @@ def process_dataset(df, sheet_name, excel_df):
     updated_df["Mean"] = stats_df["Mean"]
     updated_df["Std"] = stats_df["Std"]
     updated_df["RSD%"] = stats_df["RSD%"]
+    # Define allowed columns
+    allowed_prefix = "run"
+    allowed_exact = ["Bar code", "Swissknife barcode", "Product Name", "Food group","Producer","Brand"]
 
+    # Filter columns: keep if exact match or starts with "run" followed by digits
+    filtered_columns = [
+        col for col in updated_df.columns
+        if col in allowed_exact or (isinstance(col, str) and re.match(rf"{allowed_prefix}\d+$", col))
+    ]
+
+# Apply column filter
+updated_df = updated_df[filtered_columns]
     col_order = [c for c in updated_df.columns if c not in metric_cols]
     if first_seven_runs:
         first_run_idx = min(col_order.index(c) for c in first_seven_runs)
@@ -117,5 +128,6 @@ if excel_file and csv_file_liq and csv_file_sol:
             )
     except Exception as e:
         st.error(f"❌ Error: {e}")
+
 
 
