@@ -96,6 +96,7 @@ def process_dataset(df, sheet_name, excel_df):
 
 # === STREAMLIT UI ===
 st.title("📊 1001 Food Study Barcode Data Correlator")
+st.text("The code can be found on https://github.com/SJT-NN?tab=repositories")
 
 excel_file = st.file_uploader("Upload Excel file", type=["xlsx"])
 csv_file_liq = st.file_uploader("Upload CSV file for Liquids", type=["csv"])
@@ -129,6 +130,7 @@ if excel_file and csv_file_liq and csv_file_sol:
             )
     except Exception as e:
         st.error(f"❌ Error: {e}")
+
 
 
 
