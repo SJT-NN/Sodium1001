@@ -95,6 +95,7 @@ def process_dataset(df, sheet_name, excel_df):
     return updated_df, len(df)
 
 # === STREAMLIT UI ===
+st.set_page_config(page_title="Barcode correlator", page_icon="📊")
 st.title("📊 1001 Food Study Barcode Data Correlator")
 st.text("The code can be found on https://github.com/SJT-NN?tab=repositories")
 
@@ -130,6 +131,7 @@ if excel_file and csv_file_liq and csv_file_sol:
             )
     except Exception as e:
         st.error(f"❌ Error: {e}")
+
 
 
 
